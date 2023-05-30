@@ -5,6 +5,7 @@ import styled from 'styled-components'
 function About() {
   const Div = styled.div`
     background-color: #fcf7f1;
+    padding-bottom: 5%;
   `
   const DivContent = styled.div`
     padding: 14% 14% 0 14%;

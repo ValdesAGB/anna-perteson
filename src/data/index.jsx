@@ -1,3 +1,5 @@
+import styled from 'styled-components'
+
 export const aboutElements = [
   {
     id: '1',
@@ -99,3 +101,70 @@ export const footerElements = [
     icone: 'fas fa-rss',
   },
 ]
+
+export const portfolioElements = [
+  {
+    id: '10000',
+    cover: 'https://demo.cocobasic.com/seppo-html/demo-3/images/portfolio1.jpg',
+  },
+  {
+    id: '20000',
+    cover: 'https://demo.cocobasic.com/seppo-html/demo-3/images/portfolio2.jpg',
+  },
+  {
+    id: '30000',
+    cover: 'https://demo.cocobasic.com/seppo-html/demo-3/images/portfolio3.jpg',
+    modal: true,
+  },
+  {
+    id: '40000',
+    cover: 'https://demo.cocobasic.com/seppo-html/demo-3/images/portfolio4.jpg',
+    modal: true,
+  },
+]
+
+export const backButton = (
+  setFirstCover,
+  setSecondeCover,
+  setThirdCover,
+  setFourCover
+) => {
+  const reset = () => {
+    setFirstCover(false)
+    setSecondeCover(false)
+    setThirdCover(false)
+    setFourCover(false)
+  }
+
+  const Button = styled.button`
+    position: relative;
+    color: white;
+    background-color: #f8a577;
+    font-size: 3em;
+    padding: 0 5% 0 5%;
+    font-weight: 300;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0%;
+    &:hover {
+      color: white;
+      background-color: #f8a577;
+    }
+  `
+
+  const Icone = styled.i`
+    position: relative;
+    left: 0;
+    transition: left 500ms ease-in-out;
+    ${Button}:hover & {
+      left: -15%;
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  `
+  return (
+    <Button className="btn" onClick={() => reset()}>
+      <Icone className="fa-sharp fa-solid fa-arrow-left" />
+    </Button>
+  )
+}

@@ -28,13 +28,6 @@ function Facts() {
     margin-bottom: 40px;
   `
 
-  const Paragraph = styled.p`
-    text-align: justify;
-    line-height: 1.9em;
-    font-size: 0.9em;
-    margin-bottom: 40px;
-  `
-
   const ListIcone = styled.i`
     font-size: 4em;
     color: #188497;

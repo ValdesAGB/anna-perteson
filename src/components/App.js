@@ -7,6 +7,8 @@ import Facts from './Facts'
 import Experiences from './Experiences'
 import Contact from './Contact'
 import Footer from './Footer'
+import Portfolio from './Portfolio'
+import { StatementProvider } from '../untils/context'
 
 function App() {
   const GlobalStyle = createGlobalStyle`
@@ -20,12 +22,15 @@ color:#7a5932;
     <React.Fragment>
       <GlobalStyle />
       <main className="row">
-        <Home />
-        <About />
-        <Cover />
-        <Facts />
-        <Experiences />
-        <Contact />
+        <StatementProvider>
+          <Home />
+          <About />
+          <Portfolio />
+          <Cover />
+          <Facts />
+          <Experiences />
+          <Contact />
+        </StatementProvider>
       </main>
       <Footer />
     </React.Fragment>
