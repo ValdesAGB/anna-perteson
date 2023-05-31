@@ -19,6 +19,7 @@ function Experiences() {
     padding: 40% 10% 40% 10%;
     font-weight: 300;
     font-size: 3em;
+    letter-spacing: -6px;
   `
 
   const H5 = styled.h5`
@@ -35,20 +36,15 @@ function Experiences() {
     margin-bottom: 40px;
   `
 
-  const List = styled.ul`
-    display: grid;
-    grid-template-columns: 123px 123px 123px;
-    justify-content: space-between;
-  `
   return (
     <React.Fragment>
-      <section>
+      <section id="experience">
         <div className="container">
           <div className="row align-items-start">
-            <TitleDiv className="col-4">
+            <TitleDiv className="col-4 ">
               <Title className="text-center">Experience</Title>
             </TitleDiv>
-            <Div className="col">
+            <Div className="col ">
               <DivContent className="col-11">
                 <H5>
                   Dolor sit amet, consectetur adipiscing elit viverra tristique

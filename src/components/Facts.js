@@ -19,6 +19,7 @@ function Facts() {
     padding: 40% 0 40% 0;
     font-weight: 300;
     font-size: 4em;
+    letter-spacing: -6px;
   `
 
   const H5 = styled.h5`
@@ -39,7 +40,7 @@ function Facts() {
   `
   return (
     <React.Fragment>
-      <section>
+      <section id="facts">
         <div className="container">
           <div className="row align-items-start">
             <Div className="col">

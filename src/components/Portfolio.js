@@ -68,6 +68,7 @@ function Portfolio() {
     padding: 40% 0 40% 0;
     font-weight: 300;
     font-size: 4em;
+    letter-spacing: -6px;
   `
   const DivHover = styled.div`
     background-color: #f0deca;
@@ -114,10 +115,10 @@ function Portfolio() {
   }
   return (
     <React.Fragment>
-      <section>
+      <section id="porfolio">
         <div className="container">
           <div className="row align-items-start">
-            <Div className="col">
+            <Div className="col ">
               <DivContent className="col-12 ">
                 {firstCover ? (
                   <ArtOfCamera />
@@ -145,16 +146,9 @@ function Portfolio() {
                     )
                   )
                 )}
-                {/*portfolioElements.map(({ id, cover, href }) => (
-                  <DivImage id={id} key={id}>
-                    <img src={cover} alt={id} className="w-100" />
-
-                    <DivHover> {hover(id)}</DivHover>
-                  </DivImage>
-                ))*/}
               </DivContent>
             </Div>
-            <TitleDiv className="col-4">
+            <TitleDiv className="col-4 ">
               <Title className="text-center">Portfolio</Title>
             </TitleDiv>
           </div>

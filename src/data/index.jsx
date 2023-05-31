@@ -123,17 +123,10 @@ export const portfolioElements = [
   },
 ]
 
-export const backButton = (
-  setFirstCover,
-  setSecondeCover,
-  setThirdCover,
-  setFourCover
-) => {
+export const backButton = (setFirstCover, setSecondeCover) => {
   const reset = () => {
     setFirstCover(false)
     setSecondeCover(false)
-    setThirdCover(false)
-    setFourCover(false)
   }
 
   const Button = styled.button`
@@ -168,3 +161,144 @@ export const backButton = (
     </Button>
   )
 }
+
+export const skillsElements = [
+  {
+    id: 'PHOTOSHOP',
+    title: 'PHOTOSHOP',
+    width: '62%',
+  },
+
+  {
+    id: 'ILLUSTRATOR',
+    title: 'ILLUSTRATOR',
+    width: '84%',
+  },
+
+  {
+    id: 'MARKETING',
+    title: 'MARKETING',
+    width: '78%',
+  },
+
+  {
+    id: 'SUPER MARIO',
+    title: 'SUPER MARIO',
+    width: '92%',
+  },
+
+  {
+    id: 'FIGMA',
+    title: 'FIGMA',
+    width: '85%',
+  },
+
+  {
+    id: 'DIGITAL PAINTING',
+    title: 'DIGITAL PAINTING',
+    width: '69%',
+  },
+]
+
+export const educationElements = [
+  {
+    id: '2015',
+    year: '2015',
+    title: 'Start',
+    text: 'Nunc amet tristique volutpat adipiscing vulputate phasellus eget enim aliquam euismod lorem ispum teoro muniote lore.',
+  },
+
+  {
+    id: '2016',
+    year: '2016',
+    title: 'Basic Level',
+    text: 'Turpis metus sit diam purus leo in varius ac quam nunc amet tristique volutpat adipisc vulputate phasellus eget enim aliquam euismod mauris in vitae viverra kolomisu.',
+  },
+
+  {
+    id: '2017',
+    year: '2017',
+    title: 'Master Level',
+    text: 'Placerat in massa consectetur quisque nunc ac fames lectus in libero aliquet estlo.',
+  },
+
+  {
+    id: '2018',
+    year: '2018',
+    title: 'Pro level',
+    text: 'Eget enim aliquam euismod mauris in vitae viverra blandit lectus faucibus diam consequat maecenas turpis metus sitomo.',
+  },
+]
+
+export const lateralMenuElements = [
+  {
+    id: 'FB',
+    title: 'FB',
+    href: 'facebook.com',
+  },
+
+  {
+    id: 'IN',
+    title: 'IN',
+    href: 'linkedin.com',
+  },
+
+  {
+    id: 'TW',
+    title: 'TW',
+    href: 'twitter.com',
+  },
+
+  {
+    id: 'YT',
+    title: 'YT',
+    href: 'youtube.com',
+  },
+]
+
+export const headerElements = [
+  {
+    title: 'Home',
+    href: '#',
+  },
+
+  {
+    title: 'About',
+    href: '#about',
+  },
+
+  {
+    title: 'Portfolio',
+    href: '#porfolio',
+  },
+
+  {
+    title: 'Cover Letter',
+    href: '#cover-letter',
+  },
+
+  {
+    title: 'Skills',
+    href: '#skills',
+  },
+
+  {
+    title: 'Education',
+    href: '#education',
+  },
+
+  {
+    title: 'Facts',
+    href: '#facts',
+  },
+
+  {
+    title: 'Experience',
+    href: '#experience',
+  },
+
+  {
+    title: 'Contact',
+    href: '#contact',
+  },
+]

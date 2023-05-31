@@ -20,6 +20,7 @@ function About() {
     padding: 40% 0 40% 0;
     font-weight: 300;
     font-size: 4em;
+    letter-spacing: -6px;
   `
 
   const H5 = styled.h5`
@@ -44,13 +45,13 @@ function About() {
 
   return (
     <React.Fragment>
-      <section>
+      <section id="about">
         <div className="container">
           <div className="row align-items-start">
-            <TitleDiv className="col-4">
+            <TitleDiv className="col-4 ">
               <Title className="text-center">About</Title>
             </TitleDiv>
-            <Div className="col">
+            <Div className="col ">
               <DivContent className="col-11">
                 <H5>
                   Dolor sit amet, consectetur adipiscing elit viverra tristique

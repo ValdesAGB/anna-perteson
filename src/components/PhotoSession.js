@@ -4,8 +4,7 @@ import { backButton } from '../data'
 import { StatementContext } from '../untils/context'
 
 function PhotoSession() {
-  const { setFirstCover, setSecondeCover, setThirdCover, setFourCover } =
-    useContext(StatementContext)
+  const { setFirstCover, setSecondeCover } = useContext(StatementContext)
 
   const SectionPhotoSession = styled.section`
     padding: 8%;
@@ -40,12 +39,7 @@ function PhotoSession() {
   return (
     <React.Fragment>
       <SectionPhotoSession>
-        {backButton(
-          setFirstCover,
-          setSecondeCover,
-          setThirdCover,
-          setFourCover
-        )}
+        {backButton(setFirstCover, setSecondeCover)}
 
         <DivContent>
           <H1>PHOTO SESSION</H1>

@@ -4,8 +4,7 @@ import { backButton } from '../data'
 import { StatementContext } from '../untils/context'
 
 function ArtOfCamera() {
-  const { setFirstCover, setSecondeCover, setThirdCover, setFourCover } =
-    useContext(StatementContext)
+  const { setFirstCover, setSecondeCover } = useContext(StatementContext)
 
   const SectionArtOfCamera = styled.section`
     padding: 8%;
@@ -40,12 +39,7 @@ function ArtOfCamera() {
   return (
     <React.Fragment>
       <SectionArtOfCamera>
-        {backButton(
-          setFirstCover,
-          setSecondeCover,
-          setThirdCover,
-          setFourCover
-        )}
+        {backButton(setFirstCover, setSecondeCover)}
         <div
           id="carouselExampleIndicators"
           className="carousel slide col-12 mt-5"
@@ -77,14 +71,14 @@ function ArtOfCamera() {
               <img
                 src="https://demo.cocobasic.com/seppo-html/demo-3/images/p_item_03.jpg"
                 className="d-block w-100"
-                alt="..."
+                alt="1"
               />
             </div>
             <div className="carousel-item">
               <img
                 src="https://demo.cocobasic.com/seppo-html/demo-3/images/p_item_02.jpg"
                 className="d-block w-100"
-                alt="..."
+                alt="2"
               />
             </div>
             <div className="carousel-item">

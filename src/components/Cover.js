@@ -10,15 +10,16 @@ function Cover() {
     padding: 14% 14% 0 14%;
   `
   const TitleDiv = styled.div`
-    width: 31.25%;
+    width: 34.35%;
     background-color: #fff48f;
   `
 
   const Title = styled.h1`
     color: #9e7e63;
-    padding: 40% 0 40% 0;
+    padding: 30% 0 30% 0;
     font-weight: 300;
     font-size: 4em;
+    letter-spacing: -6px;
   `
 
   const H5 = styled.h5`
@@ -37,15 +38,15 @@ function Cover() {
 
   return (
     <React.Fragment>
-      <section>
+      <section id="cover-letter">
         <div className="container">
           <div className="row align-items-start">
-            <TitleDiv className="col-4">
+            <TitleDiv className="col-5 ">
               <Title className="text-center">
                 Cover <br /> Letter
               </Title>
             </TitleDiv>
-            <Div className="col">
+            <Div className="col ">
               <DivContent className="col-11">
                 <H5>
                   Dolor sit amet, consectetur adipiscing elit viverra tristique

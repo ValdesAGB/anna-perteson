@@ -19,6 +19,7 @@ function Contact() {
     padding: 40% 0 40% 0;
     font-weight: 300;
     font-size: 4em;
+    letter-spacing: -6px;
   `
 
   const H5 = styled.h5`
@@ -35,18 +36,9 @@ function Contact() {
     margin-bottom: 40px;
   `
 
-  const ListIcone = styled.i`
-    font-size: 4em;
-    color: #188497;
-  `
-
-  const ListValue = styled.h3`
-    font-size: 3em;
-    font-weight: 700;
-  `
   return (
     <React.Fragment>
-      <section>
+      <section id="contact">
         <div className="container">
           <div className="row align-items-start">
             <Div className="col">
