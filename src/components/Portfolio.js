@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { portfolioElements } from '../data'
 import ArtOfCamera from './ArtOfCamera'
 import PhotoSession from './PhotoSession'
@@ -23,7 +23,9 @@ function Portfolio() {
         break
     }
   }
-
+  const PortfolioSection = styled.section`
+    position: relative;
+  `
   const Div = styled.div`
     background-color: #f0deca;
     padding: ${firstCover || secondeCover ? '' : '0'};
@@ -77,7 +79,7 @@ function Portfolio() {
     left: 0;
     padding: 2% 12% 2% 5%;
     opacity: 0;
-    transform: translateX(-30%);
+    transform: translateX(-10%);
     transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
 
     ${DivImage}:hover & {
@@ -113,9 +115,33 @@ function Portfolio() {
       </>
     )
   }
+
+  const slideAnimation = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(28%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`
+
+  const TriangleImage = styled.div`
+    position: absolute;
+    top: 2%;
+    left: 4%;
+    z-index: -1;
+  `
+
+  const TriangleImg = styled.img`
+    animation: ${slideAnimation} 2s ease-in-out infinite;
+  `
+
   return (
     <React.Fragment>
-      <section id="porfolio">
+      <PortfolioSection id="porfolio">
         <div className="container">
           <div className="row align-items-start">
             <Div className="col ">
@@ -153,7 +179,14 @@ function Portfolio() {
             </TitleDiv>
           </div>
         </div>
-      </section>
+        <TriangleImage className="col-2">
+          <TriangleImg
+            src="https://demo.cocobasic.com/seppo-html/demo-3/images/triangle.png"
+            alt="1"
+            className="w-75"
+          />
+        </TriangleImage>
+      </PortfolioSection>
     </React.Fragment>
   )
 }

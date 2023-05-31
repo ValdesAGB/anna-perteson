@@ -1,9 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import LevelEducation from './LevelEducation'
 import { educationElements } from '../data'
 
 function Education() {
+  const EducationSection = styled.section`
+    position: relative;
+  `
   const Div = styled.div`
     background-color: #fcf7f1;
   `
@@ -24,9 +27,32 @@ function Education() {
     letter-spacing: -6px;
   `
 
+  const slideAnimation = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`
+
+  const TriangleImage = styled.div`
+    position: absolute;
+    top: 75%;
+    left: 25.6%;
+    z-index: 0;
+  `
+
+  const TriangleImg = styled.img`
+    animation: ${slideAnimation} 2s ease-in-out infinite;
+  `
+
   return (
     <React.Fragment>
-      <section id="education">
+      <EducationSection id="education">
         <div className="container">
           <div className="row align-items-start">
             <TitleDiv className="col-4 ">
@@ -40,13 +66,22 @@ function Education() {
                     text={text}
                     title={title}
                     lineState={id === '2018' ? false : true}
+                    key={id}
                   />
                 ))}
               </DivContent>
             </Div>
           </div>
         </div>
-      </section>
+
+        <TriangleImage className="col-1">
+          <TriangleImg
+            src="https://demo.cocobasic.com/seppo-html/demo-3/images/triangle.png"
+            alt="1"
+            className="w-100"
+          />
+        </TriangleImage>
+      </EducationSection>
     </React.Fragment>
   )
 }

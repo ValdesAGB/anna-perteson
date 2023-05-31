@@ -1,8 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Formulaire from './Formulaire'
 
 function Contact() {
+  const ContactSection = styled.section`
+    position: relative;
+  `
   const Div = styled.div`
     background-color: #f0deca;
   `
@@ -36,9 +39,28 @@ function Contact() {
     margin-bottom: 40px;
   `
 
+  const rotationAnimation = keyframes`
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+  `
+
+  const SquareDiv = styled.div`
+    position: absolute;
+    top: 15%;
+    left: 62%;
+  `
+
+  const SquareImg = styled.img`
+    animation: ${rotationAnimation} 2s linear infinite;
+  `
+
   return (
     <React.Fragment>
-      <section id="contact">
+      <ContactSection id="contact">
         <div className="container">
           <div className="row align-items-start">
             <Div className="col">
@@ -62,7 +84,14 @@ function Contact() {
             </TitleDiv>
           </div>
         </div>
-      </section>
+        <SquareDiv className="col-1">
+          <SquareImg
+            src="https://demo.cocobasic.com/seppo-html/demo-3/images/square.png"
+            alt="1"
+            className="w-75"
+          />
+        </SquareDiv>
+      </ContactSection>
     </React.Fragment>
   )
 }

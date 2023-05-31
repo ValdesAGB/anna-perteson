@@ -1,10 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 function Cover() {
+  const CoverSection = styled.section`
+    position: relative;
+  `
   const Div = styled.div`
     background-color: #fcf7f1;
-    padding: 0 0 60px 0;
+    padding: 0 0 10% 0;
   `
   const DivContent = styled.div`
     padding: 14% 14% 0 14%;
@@ -36,9 +39,51 @@ function Cover() {
     margin-bottom: 40px;
   `
 
+  const slideAnimation = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(28%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`
+
+  const ZigZagDiv = styled.div`
+    position: absolute;
+    top: 8%;
+    left: 3%;
+    z-index: 0;
+  `
+
+  const ZigZagImg = styled.img`
+    animation: ${slideAnimation} 2s ease-in-out infinite;
+  `
+
+  const rotationAnimation = keyframes`
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+  `
+
+  const SquareDiv = styled.div`
+    position: absolute;
+    top: 80%;
+    left: 87%;
+    z-index: 0;
+  `
+
+  const SquareImg = styled.img`
+    animation: ${rotationAnimation} 2s linear infinite;
+  `
   return (
     <React.Fragment>
-      <section id="cover-letter">
+      <CoverSection id="cover-letter">
         <div className="container">
           <div className="row align-items-start">
             <TitleDiv className="col-5 ">
@@ -83,7 +128,21 @@ function Cover() {
             </Div>
           </div>
         </div>
-      </section>
+        <ZigZagDiv className="col-2">
+          <ZigZagImg
+            src="https://demo.cocobasic.com/seppo-html/demo-3/images/zigzag.png"
+            alt="1"
+            className="w-75"
+          />
+        </ZigZagDiv>
+        <SquareDiv className="col-1">
+          <SquareImg
+            src="https://demo.cocobasic.com/seppo-html/demo-3/images/square.png"
+            alt="1"
+            className="w-100"
+          />
+        </SquareDiv>
+      </CoverSection>
     </React.Fragment>
   )
 }

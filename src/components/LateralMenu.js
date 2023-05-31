@@ -8,12 +8,12 @@ function LateralMenu() {
     top: 0;
     left: 0;
     height: 100vh;
-
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: flex;
     justify-content: center;
-    background-color: #faeddf;
+    background-color: transparent;
     color: #7a5932;
     writing-mode: vertical-lr;
     text-orientation: mixed;

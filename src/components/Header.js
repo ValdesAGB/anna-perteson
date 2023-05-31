@@ -3,12 +3,21 @@ import styled from 'styled-components'
 import { headerElements } from '../data'
 
 function Header() {
+  const [state, setStatement] = useState(false)
+  const [isCrossed, setIsCrossed] = useState(false)
+
+  const handleContentIconeClick = () => {
+    setIsCrossed(isCrossed ? false : true)
+    setStatement(state ? false : true)
+  }
+
   const HeaderSection = styled.section`
     position fixed;
     width:100%;
-    z-index:3;
-    background-color: #faeddf;
+    z-index:${isCrossed ? 3 : 2};
+    background-color: ${!isCrossed ? 'transparent' : '#faeddf'};
     padding : 1.5% 0 1% 0;
+    top:0;
     `
 
   const List = styled.ul`
@@ -31,11 +40,6 @@ function Header() {
     cursor: pointer;
     position: relative;
   `
-  const [isCrossed, setIsCrossed] = useState(false)
-
-  const handleContentIconeClick = () => {
-    setIsCrossed(isCrossed ? false : true)
-  }
 
   const IconeContainer = styled.div`
     position: relative;
@@ -114,7 +118,7 @@ function Header() {
             <CrossBottom />
           </CrossContainer>
         </ContentIcone>
-        <List className=" col row  ">
+        <List className={` col row ${!state ? 'd-none' : 'd-flex'}`}>
           {headerElements.map(({ href, title }) => (
             <li key={href} className="col text-center ">
               <ListLink

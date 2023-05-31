@@ -1,8 +1,32 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useState } from 'react'
+import styled, { keyframes } from 'styled-components'
 import { skillsElements } from '../data'
 
 function Skills() {
+  const [showProgress, setShowProgress] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const element = document.getElementById('skills')
+      const position = element.getBoundingClientRect()
+
+      if (position.top <= window.innerHeight * 0.75) {
+        setShowProgress(true)
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  })
+
+  const SkillsSection = styled.section`
+    position: relative;
+  `
+
   const Div = styled.div`
     background-color: #f0deca;
   `
@@ -54,11 +78,12 @@ function Skills() {
     top: 50%;
     left: 0;
     height: 22px;
-    width: ${(props) => props.width};
+    width: ${(props) => (props.show ? props.width : '0%')};
     padding: 0.8% 0 0 2%;
     font-size: 0.7em;
     transform: translateY(-50%);
     background-color: #188497;
+    transition: width 2s ease-in-out;
   `
 
   const Width = styled.div`
@@ -66,9 +91,31 @@ function Skills() {
     font-size: 1.2em;
   `
 
+  const upDownAnimation = keyframes`
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  `
+
+  const CircleDiv = styled.div`
+    position: absolute;
+    top: 75%;
+    left: 3.5%;
+  `
+
+  const CircleImg = styled.img`
+    animation: ${upDownAnimation} 2s ease-in-out infinite;
+  `
+
   return (
     <React.Fragment>
-      <section id="skills">
+      <SkillsSection id="skills">
         <div className="container">
           <div className="row align-items-start">
             <Div className="col ">
@@ -87,7 +134,9 @@ function Skills() {
                   {skillsElements.map(({ id, title, width }) => (
                     <div className="row align-items-center my-4" key={id}>
                       <ContainerProgressBar className="col-9">
-                        <ProgressBar width={width}>{title}</ProgressBar>
+                        <ProgressBar show={showProgress} width={width}>
+                          {title}
+                        </ProgressBar>
                       </ContainerProgressBar>
                       <Width className="col-2 offset-1">{width}</Width>
                     </div>
@@ -100,7 +149,15 @@ function Skills() {
             </TitleDiv>
           </div>
         </div>
-      </section>
+
+        <CircleDiv className="col-1">
+          <CircleImg
+            src="https://demo.cocobasic.com/seppo-html/demo-3/images/circle.png"
+            alt="1"
+            className="w-100"
+          />
+        </CircleDiv>
+      </SkillsSection>
     </React.Fragment>
   )
 }

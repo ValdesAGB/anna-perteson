@@ -29,7 +29,7 @@ function Offcanvas({ DivImage, DivHover, cover, id, hover }) {
         id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel"
       >
-        <div class="offcanvas-header py-1  row justify-content-end">
+        <div className="offcanvas-header py-1  row justify-content-end">
           <button
             type="button "
             className="btn text-white col-1 borde borde-danger"

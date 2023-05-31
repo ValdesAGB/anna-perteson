@@ -16,7 +16,7 @@ export const aboutElements = [
   },
 
   {
-    id: '1',
+    id: '3',
     icone:
       'https://demo.cocobasic.com/seppo-html/demo-3/images/icon_responsive_v2.png',
     text: 'RESPONSIVE',
@@ -41,7 +41,7 @@ export const factsElements = [
   {
     id: '30',
     icone: 'fas fa-code',
-    value: '3.3K',
+    value: 3.3,
     text: 'Lines of Code',
   },
 

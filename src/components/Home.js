@@ -1,10 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 function Home() {
   const Div = styled.div`
     background-color: #f0deca;
-    margin-top: 5.7%;
+    position: relative;
   `
 
   const H1 = styled.h1`
@@ -17,6 +17,29 @@ function Home() {
     padding: 50px 0px 00px 10px;
     line-height: 2em;
   `
+
+  const slideAnimation = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(28%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`
+
+  const ZigZagDiv = styled.div`
+    position: absolute;
+    top: 90%;
+    left: 90%;
+  `
+
+  const ZigZagImg = styled.img`
+    animation: ${slideAnimation} 2s ease-in-out infinite;
+  `
+
   return (
     <section>
       <Div className="container">
@@ -43,6 +66,13 @@ function Home() {
             </Paragraph>
           </div>
         </div>
+        <ZigZagDiv className="col-2">
+          <ZigZagImg
+            src="https://demo.cocobasic.com/seppo-html/demo-3/images/zigzag.png"
+            alt="1"
+            className="w-75"
+          />
+        </ZigZagDiv>
       </Div>
     </section>
   )

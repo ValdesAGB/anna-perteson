@@ -1,5 +1,5 @@
 import React from 'react'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Home from './Home'
 import About from './About'
 import Cover from './Cover'
@@ -22,12 +22,16 @@ function App() {
     color:#7a5932;
   }
   `
+
+  const Main = styled.main`
+    margin-top: 5.7%;
+  `
   return (
     <React.Fragment>
       <GlobalStyle />
       <Header />
       <LateralMenu />
-      <main className="row">
+      <Main className="row">
         <StatementProvider>
           <Home />
           <About />
@@ -39,7 +43,7 @@ function App() {
           <Experiences />
           <Contact />
         </StatementProvider>
-      </main>
+      </Main>
       <Footer />
     </React.Fragment>
   )

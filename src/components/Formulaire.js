@@ -10,6 +10,7 @@ function Formulaire() {
     border: none;
     border-bottom: solid 2px #7a5932;
     border-radius: 0px;
+
     &:focus {
       background-color: transparent;
       border-bottom: solid 2px #7a5932;
@@ -33,7 +34,9 @@ function Formulaire() {
     font-size: 15px;
     line-height: 24px;
     font-weight: 700;
+    color: #7a5932;
     &:focus {
+      color: #7a5932;
       background-color: red;
     }
   `
