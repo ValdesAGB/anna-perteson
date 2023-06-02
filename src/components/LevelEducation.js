@@ -1,10 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import { width } from '../data'
 
 function LevelEducation({ year, text, title, lineState }) {
   const VerticalLayout = styled.div`
     display: flex;
     align-items: flex-start;
+    @media (min-width: 375px) {
+      margin-left: 2%;
+    }
+    @media (min-width: 425px) {
+      margin-left: 1%;
+    }
+
+    @media (min-width: 1024px) {
+      margin-left: 10%;
+    }
+    @media (min-width: ${width}px) {
+      margin-left: 20%;
+    }
   `
 
   const VerticalLine = styled.div`
@@ -15,13 +29,36 @@ function LevelEducation({ year, text, title, lineState }) {
   `
 
   const Year = styled.div`
-    margin-top: 1.2%;
     font-weight: bold;
     color: #188497;
     margin-right: 20px;
     transition: transform 500ms;
-    ${VerticalLayout}:hover & {
-      transform: translateX(-25%);
+
+    @media (min-width: 320px) {
+      margin-top: 2%;
+      ${VerticalLayout}:hover & {
+        transform: translateX(-10%);
+      }
+    }
+
+    @media (min-width: 375px) {
+      margin-right: 40px;
+      margin-top: 2%;
+      ${VerticalLayout}:hover & {
+        transform: translateX(-15%);
+      }
+    }
+
+    @media (min-width: 768px) {
+      ${VerticalLayout}:hover & {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (min-width: ${width}px) {
+      ${VerticalLayout}:hover & {
+        transform: translateX(-25%);
+      }
     }
   `
 
@@ -52,9 +89,66 @@ function LevelEducation({ year, text, title, lineState }) {
   `
   const Line = styled.div`
     width: 3px;
-    height: 100px;
+
     background-color: #188497;
-    margin-bottom: 20px;
+
+    @media (min-width: 320px) {
+      height: ${(props) =>
+        props.id === '2015'
+          ? '250px'
+          : props.id === '2016'
+          ? '326px'
+          : props.id === '2017'
+          ? '160px'
+          : ''};
+      margin-bottom: 5px;
+    }
+
+    @media (min-width: 375px) {
+      height: ${(props) =>
+        props.id === '2015'
+          ? '199px'
+          : props.id === '2016'
+          ? '295px'
+          : props.id === '2017'
+          ? '160px'
+          : ''};
+      margin-bottom: 5px;
+    }
+
+    @media (min-width: 425px) {
+      height: ${(props) =>
+        props.id === '2015'
+          ? '200px'
+          : props.id === '2016'
+          ? '220px'
+          : props.id === '2017'
+          ? '120px'
+          : ''};
+    }
+
+    @media (min-width: 768px) {
+      height: ${(props) =>
+        props.id === '2015'
+          ? '160px'
+          : props.id === '2016'
+          ? '220px'
+          : props.id === '2017'
+          ? '135px'
+          : ''};
+      margin-bottom: 5px;
+    }
+    @media (min-width: 1024px) {
+      height: ${(props) =>
+        props.id === '2015'
+          ? '120px'
+          : props.id === '2016'
+          ? '150px'
+          : props.id === '2017'
+          ? '90px'
+          : ''};
+      margin-bottom: 5px;
+    }
   `
 
   const Title = styled.p`
@@ -62,7 +156,13 @@ function LevelEducation({ year, text, title, lineState }) {
   `
   const Paragraph = styled.p`
     font-weight: 400;
-    line-height: 1.5em;
+    @media (min-width: 320px) {
+      line-height: 2em;
+    }
+    @media (min-width: 768px) {
+      font-size: 0.9em;
+      line-height: 2em;
+    }
   `
 
   const Text = styled.div`
@@ -71,17 +171,17 @@ function LevelEducation({ year, text, title, lineState }) {
 
   return (
     <React.Fragment>
-      <VerticalLayout className="row ">
-        <Year className="col-1">{year}</Year>
-        <VerticalLine className="col-1">
+      <VerticalLayout className="row  ">
+        <Year className="col-2 col-md-1">{year}</Year>
+        <VerticalLine className="col-1 col-md-1">
           <Cercle>
             <CercleBetween />
           </Cercle>
-          {lineState ? <Line></Line> : null}
+          {lineState ? <Line id={year}></Line> : null}
         </VerticalLine>
-        <Text className="col-8">
+        <Text className="col col-md-7 col-lg-8">
           <Title>{title}</Title>
-          <Paragraph>{text}</Paragraph>
+          <Paragraph className="col-">{text}</Paragraph>
         </Text>
       </VerticalLayout>
     </React.Fragment>

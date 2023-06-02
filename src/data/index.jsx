@@ -123,10 +123,14 @@ export const portfolioElements = [
   },
 ]
 
-export const backButton = (setFirstCover, setSecondeCover) => {
+export const backButton = (setFirstCover, setSecondeCover, setIsLoading) => {
   const reset = () => {
-    setFirstCover(false)
-    setSecondeCover(false)
+    setIsLoading(true)
+    setTimeout(() => {
+      setFirstCover(false)
+      setSecondeCover(false)
+      setIsLoading(false)
+    }, 2000)
   }
 
   const Button = styled.button`
@@ -302,3 +306,5 @@ export const headerElements = [
     href: '#contact',
   },
 ]
+
+export const width = 1360

@@ -24,12 +24,12 @@ function Offcanvas({ DivImage, DivHover, cover, id, hover }) {
       </div>
 
       <OffcanvasComponent
-        className="offcanvas offcanvas-bottom h-100"
+        className="offcanvas offcanvas-bottom h-75"
         tabIndex="-1"
         id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel"
       >
-        <div className="offcanvas-header py-1  row justify-content-end">
+        <div className="offcanvas-header py-1  row justify-content-end borger">
           <button
             type="button "
             className="btn text-white col-1 borde borde-danger"

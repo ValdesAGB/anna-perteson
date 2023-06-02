@@ -3,7 +3,10 @@ import styled from 'styled-components'
 
 function Formulaire() {
   const Formulaires = styled.form`
-    margin-bottom: 20%;
+    margin-bottom: 10%;
+    @media (min-width: 320px) {
+      padding: 0% 2% 0% 2%;
+    }
   `
   const Input = styled.input`
     background-color: transparent;

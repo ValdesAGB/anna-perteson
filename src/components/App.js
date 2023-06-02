@@ -16,22 +16,48 @@ import Header from './Header'
 
 function App() {
   const GlobalStyle = createGlobalStyle`
+  
   body{
     font-family : Montserrat;
     background-color:#faeddf;
     color:#7a5932;
+    //border : solid 1px red;
+    @media (min-width: 320px) {
+      background-color:#f0deca;
+      width: 100%;
+    }
+    @media (min-width: 768px) {
+      background-color: #faeddf;
+    }
+    @media (min-width: 1024px) {
+      background-color:#faeddf;
+      width: 100%;
+    }
+    @media (min-width: 1360px) {
+      background-color: #faeddf;
+
+    }
   }
   `
 
   const Main = styled.main`
-    margin-top: 5.7%;
+    @media (max-width: 425px) {
+      width: 100%;
+    }
+
+    @media (min-width: 1300px) {
+      margin-top: 5.7%;
+    }
+
+    @media (min-width: 1440px) {
+      margin: 6% 0 0 3%;
+    }
   `
   return (
     <React.Fragment>
       <GlobalStyle />
-      <Header />
-      <LateralMenu />
-      <Main className="row">
+
+      <Main className="">
         <StatementProvider>
           <Home />
           <About />

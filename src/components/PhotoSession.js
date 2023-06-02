@@ -4,10 +4,17 @@ import { backButton } from '../data'
 import { StatementContext } from '../untils/context'
 
 function PhotoSession() {
-  const { setFirstCover, setSecondeCover } = useContext(StatementContext)
+  const { setFirstCover, setSecondeCover, setIsLoading } =
+    useContext(StatementContext)
 
   const SectionPhotoSession = styled.section`
-    padding: 8%;
+    @media (min-width: 320px) {
+      padding: 10% 0 20% 0;
+    }
+
+    @media (min-width: 768px) {
+      padding: 10% 5% 20% 5%;
+    }
   `
 
   const DivContent = styled.div`
@@ -24,9 +31,11 @@ function PhotoSession() {
   const SubTitle = styled.p`
     font-size: 20px;
     line-height: 33px;
-    width: 422px;
     max-width: 422px;
     margin-bottom: 40px;
+    @media (max-width: 325px) {
+      width: 100%;
+    }
   `
 
   const Paragraph = styled.p`
@@ -34,12 +43,24 @@ function PhotoSession() {
     font-size: 15px;
     line-height: 2;
     font-weight: 400;
+
+    @media (min-width: 768px) {
+      margin-bottom: 10%;
+    }
+  `
+
+  const DivImageParagraph = styled.div`
+    @media (min-width: 320px) {
+      width: 100%;
+      line-height: 1.8;
+      margin: ${(props) => (props.id === 1 ? '10% 0 10% 0' : '10% 0 0 0')};
+    }
   `
 
   return (
     <React.Fragment>
       <SectionPhotoSession>
-        {backButton(setFirstCover, setSecondeCover)}
+        {backButton(setFirstCover, setSecondeCover, setIsLoading)}
 
         <DivContent>
           <H1>PHOTO SESSION</H1>
@@ -59,11 +80,11 @@ function PhotoSession() {
               alt="1"
               className="w-100"
             />
-            <p className="my-5">
+            <DivImageParagraph id={1}>
               Cras pretium metus pulvinar ultricies auctor. In varius purus
               blandit sem mollis tristique. Curabitur sed lorem vel ligula
               pulvinar porttitor proin.
-            </p>
+            </DivImageParagraph>
           </div>
           <div>
             <img
@@ -71,11 +92,11 @@ function PhotoSession() {
               alt="1"
               className="w-100"
             />
-            <p className="mt-4">
+            <DivImageParagraph margin="10% 0 0 0">
               Veleifend amet, ullamcorper lacus vangelis rich in heavy atoms
               descended from astronomers dream of the mind’s cras pretium metus
               pulvinar.
-            </p>
+            </DivImageParagraph>
           </div>
         </DivContent>
       </SectionPhotoSession>

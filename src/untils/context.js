@@ -4,6 +4,7 @@ export const StatementContext = createContext()
 export const StatementProvider = ({ children }) => {
   const [firstCover, setFirstCover] = useState(false)
   const [secondeCover, setSecondeCover] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   return (
     <StatementContext.Provider
       value={{
@@ -11,6 +12,8 @@ export const StatementProvider = ({ children }) => {
         setFirstCover,
         secondeCover,
         setSecondeCover,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}

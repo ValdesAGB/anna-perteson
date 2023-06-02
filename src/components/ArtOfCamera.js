@@ -4,16 +4,34 @@ import { backButton } from '../data'
 import { StatementContext } from '../untils/context'
 
 function ArtOfCamera() {
-  const { setFirstCover, setSecondeCover } = useContext(StatementContext)
+  const { setFirstCover, setSecondeCover, setIsLoading } =
+    useContext(StatementContext)
 
   const SectionArtOfCamera = styled.section`
-    padding: 8%;
+    @media (min-width: 320px) {
+      padding: 10% 0 20% 0;
+    }
+
+    @media (min-width: 768px) {
+      padding: 10% 5% 20% 5%;
+    }
   `
 
   const DivContent = styled.div`
     margin-top: 10%;
   `
   const H1 = styled.h1`
+    @media (min-width: 320px) {
+      font-size: 1.5em;
+      font-weight: 600;
+      line-height: 100%;
+      letter-spacing: 5px;
+      margin-bottom: 15%;
+    }
+
+    @media (min-width: 425px) {
+      margin-bottom: 10%;
+    }
     font-size: 26px;
     font-weight: 600;
     line-height: 26px;
@@ -22,6 +40,9 @@ function ArtOfCamera() {
   `
 
   const SubTitle = styled.p`
+    @media (min-width: 320px) {
+      width: 100%;
+    }
     font-size: 20px;
     line-height: 33px;
     width: 422px;
@@ -39,7 +60,7 @@ function ArtOfCamera() {
   return (
     <React.Fragment>
       <SectionArtOfCamera>
-        {backButton(setFirstCover, setSecondeCover)}
+        {backButton(setFirstCover, setSecondeCover, setIsLoading)}
         <div
           id="carouselExampleIndicators"
           className="carousel slide col-12 mt-5"
@@ -91,7 +112,7 @@ function ArtOfCamera() {
           </div>
         </div>
         <DivContent className="">
-          <H1>ART OF CAMERA</H1>
+          <H1 className="col-6 col-md-9">ART OF CAMERA</H1>
           <SubTitle>
             Two ghostly white figures in coveralls and helmets are softly
             dancing lorem ipsum.
