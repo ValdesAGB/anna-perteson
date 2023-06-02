@@ -186,7 +186,7 @@ function Cover() {
 
   const DivSignature = styled.div`
     position: relative;
-    z-index: 4;
+    z-index: 2;
     @media (min-width: 425px) {
       padding: 0 5% 0 30%;
     }

@@ -238,25 +238,25 @@ export const lateralMenuElements = [
   {
     id: 'FB',
     title: 'FB',
-    href: 'facebook.com',
+    href: 'https://web.facebook.com/',
   },
 
   {
     id: 'IN',
     title: 'IN',
-    href: 'linkedin.com',
+    href: 'https://www.linkedin.com/',
   },
 
   {
     id: 'TW',
     title: 'TW',
-    href: 'twitter.com',
+    href: 'https://twitter.com/',
   },
 
   {
     id: 'YT',
     title: 'YT',
-    href: 'youtube.com',
+    href: 'https://www.youtube.com/',
   },
 ]
 

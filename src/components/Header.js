@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { headerElements } from '../data'
+import { headerElements, width } from '../data'
+import HeaderResponsive from './HeaderResponsive'
 
 function Header() {
   const [state, setStatement] = useState(false)
@@ -16,13 +17,21 @@ function Header() {
     width:100%;
     z-index:${isCrossed ? 3 : 2};
     background-color: ${!isCrossed ? 'transparent' : '#faeddf'};
-    padding : 1.5% 0 1% 0;
+    padding : 1% 0 0% 0;
     top:0;
+    @media (max-width: 1024px) {
+      display: none;
+    }
+
+    @media (min-width: 2560px) {
+      left:23%;
+      width:55%;
+    }
     `
 
   const List = styled.ul`
     list-style: none;
-    padding: 0;
+    margin: 1% 0 1% 0;
   `
 
   const ListLink = styled.a`
@@ -39,11 +48,28 @@ function Header() {
     margin-left: 20px;
     cursor: pointer;
     position: relative;
+    @media (min-width: 2560px) {
+      font-size: 1.3em;
+      margin: 0 0 5% 1%;
+      top: 2%;
+    }
   `
 
   const IconeContainer = styled.div`
     position: relative;
-    z-index: 5;
+
+    @media (min-width: ${width}px) {
+      top: 10px;
+      left: 0%;
+    }
+    @media (min-width: 1440px) {
+      top: 10px;
+      left: 10%;
+    }
+    @media (min-width: 2560px) {
+      top: 40px;
+      left: 1%;
+    }
   `
 
   const Line = styled.div`
@@ -69,10 +95,21 @@ function Header() {
   const CrossContainer = styled.div`
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    position: fixed;
-    top: 2.9%;
-    left: 2%;
+    position: absolute;
+    @media (min-width: ${width}px) {
+      top: -10%;
+      left: 1%;
+    }
+
+    @media (min-width: 1440px) {
+      top: -10%;
+      left: 10%;
+    }
+
+    @media (min-width: 2560px) {
+      top: 90%;
+      left: 10%;
+    }
   `
 
   const CrossLine = styled.div`
@@ -118,6 +155,7 @@ function Header() {
             <CrossBottom />
           </CrossContainer>
         </ContentIcone>
+
         <List className={` col row ${!state ? 'd-none' : 'd-flex'}`}>
           {headerElements.map(({ href, title }) => (
             <li key={href} className="col text-center ">
@@ -132,8 +170,29 @@ function Header() {
           ))}
         </List>
       </HeaderSection>
+      <HeaderResponsive />
     </React.Fragment>
   )
 }
 
 export default Header
+/**
+ * 
+ *  <List
+          className={` col  border border-danger row ${
+            !state ? 'd-none' : 'd-flex'
+          }`}
+        >
+          {headerElements.map(({ href, title }) => (
+            <li key={href} className="col text-center ">
+              <ListLink
+                href={href}
+                active={activeLink === href}
+                onClick={() => handleLinkClick(href)}
+              >
+                {title}
+              </ListLink>
+            </li>
+          ))}
+        </List>
+ */

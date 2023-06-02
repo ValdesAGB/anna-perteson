@@ -41,12 +41,19 @@ function App() {
   `
 
   const Main = styled.main`
+    @media (min-width: 320px) {
+      margin-top: 28%;
+    }
+
+    @media (min-width: 768px) {
+      margin-top: 8%;
+    }
     @media (max-width: 425px) {
       width: 100%;
     }
 
-    @media (min-width: 1300px) {
-      margin-top: 5.7%;
+    @media (min-width: 1024px) {
+      margin-top: 6%;
     }
 
     @media (min-width: 1440px) {
@@ -57,7 +64,9 @@ function App() {
     <React.Fragment>
       <GlobalStyle />
 
-      <Main className="">
+      <Header />
+      <Main>
+        <LateralMenu />
         <StatementProvider>
           <Home />
           <About />

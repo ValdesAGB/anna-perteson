@@ -192,6 +192,11 @@ function Home() {
       right: 0%;
       z-index: -1;
     }
+    @media (max-width: 360px) {
+      top: 90%;
+      right: 0%;
+      z-index: -1;
+    }
     @media (min-width: 375px) {
       top: 89%;
       left: 40%;
@@ -234,7 +239,7 @@ function Home() {
 
   return (
     <section className=" ">
-      <Div className="container rder-danger ">
+      <Div className="container ">
         <div className="row ">
           <DivImage className="col-12 col-md-5 col-lg-5 col-xl-4  me-md-3 p-md-0  danger ">
             <img

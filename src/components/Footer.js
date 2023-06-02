@@ -11,7 +11,7 @@ function Footer() {
     color: #7a5932;
     transition: color 400ms;
     &:hover {
-      color: rgba(0, 0, 255, 0.55);
+      color: #188497;
     }
   `
 

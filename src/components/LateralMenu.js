@@ -1,5 +1,5 @@
 import React from 'react'
-import { lateralMenuElements } from '../data'
+import { lateralMenuElements, width } from '../data'
 import styled from 'styled-components'
 
 function LateralMenu() {
@@ -17,6 +17,12 @@ function LateralMenu() {
     color: #7a5932;
     writing-mode: vertical-lr;
     text-orientation: mixed;
+    @media (max-width: 1024px) {
+      display: none;
+    }
+    @media (min-width: 2560px) {
+      left: 22%;
+    }
   `
 
   const LateralDiv = styled.div`
@@ -65,8 +71,10 @@ function LateralMenu() {
           <div className="col   mt-3">
             <List className="row text-center">
               {lateralMenuElements.map(({ id, href, title }) => (
-                <ListItems key={id} className="col my-2">
-                  <ListLink href={href}>{title}</ListLink>
+                <ListItems key={id} className="col col-xxl-2 my-2 my-xxl-3">
+                  <ListLink href={href} target="_blank">
+                    {title}
+                  </ListLink>
                 </ListItems>
               ))}
             </List>

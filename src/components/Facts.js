@@ -233,7 +233,7 @@ function Facts() {
 
   return (
     <React.Fragment>
-      <FactsSession id="facts ">
+      <FactsSession id="facts">
         <div className="container p-0 ">
           <div className="row align-items-start">
             <Div className="col-12 col-md order-2 order-md-1">
