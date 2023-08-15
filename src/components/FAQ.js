@@ -16,6 +16,10 @@ function FAQ() {
     width: 100%;
   `
 
+  const QuestionContainer = styled.div`
+    margin: 20px 0;
+  `
+
   const Question = styled.div`
     display: flex;
     padding: 10px;
@@ -48,20 +52,18 @@ function FAQ() {
   `
   return (
     <FAQContainer>
-      <>
-        {faqElements.map(({ id, title, subTitle, text }) => (
-          <div key={id} className="my-4">
-            <Question className={`${id}`} onClick={() => toggleAnswer(id)}>
-              <QuestionTitle>{title}</QuestionTitle>
-              <ToggleButton>{answersVisibility[id] ? '-' : '+'}</ToggleButton>
-            </Question>
-            <Answer show={answersVisibility[id]}>
-              <h6 className="fw-bold mb-3">{subTitle}</h6>
-              <p>{text}</p>
-            </Answer>
-          </div>
-        ))}
-      </>
+      {faqElements.map(({ id, title, subTitle, text }) => (
+        <QuestionContainer key={id}>
+          <Question className={`${id}`} onClick={() => toggleAnswer(id)}>
+            <QuestionTitle>{title}</QuestionTitle>
+            <ToggleButton>{answersVisibility[id] ? '-' : '+'}</ToggleButton>
+          </Question>
+          <Answer show={answersVisibility[id]}>
+            <h6 className="fw-bold mb-3">{subTitle}</h6>
+            <p>{text}</p>
+          </Answer>
+        </QuestionContainer>
+      ))}
     </FAQContainer>
   )
 }

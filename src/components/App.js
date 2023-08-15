@@ -1,5 +1,5 @@
-import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import React, { useState } from 'react'
+import { createGlobalStyle } from 'styled-components'
 import Home from './Home'
 import About from './About'
 import Cover from './Cover'
@@ -13,60 +13,31 @@ import Skills from './Skills'
 import Education from './Education'
 import LateralMenu from './LateralMenu'
 import Header from './Header'
+import ToTop from './ToTop'
+import { police } from '../untils/police'
+import { colors } from '../untils/colors'
+import ToogleMenu from './ToogleMenu'
 
-function App() {
-  const GlobalStyle = createGlobalStyle`
-  
+const GlobalStyle = createGlobalStyle`
   body{
-    font-family : Montserrat;
-    background-color:#faeddf;
+    font-family : ${police.main};
     color:#7a5932;
-    //border : solid 1px red;
-    @media (min-width: 320px) {
-      background-color:#f0deca;
-      width: 100%;
-    }
+    background-color:${colors.mainBgColor};
     @media (min-width: 768px) {
-      background-color: #faeddf;
-    }
-    @media (min-width: 1024px) {
-      background-color:#faeddf;
-      width: 100%;
-    }
-    @media (min-width: 1360px) {
-      background-color: #faeddf;
-
+      background-color: ${colors.secondBgColor};
     }
   }
-  `
+`
 
-  const Main = styled.main`
-    @media (min-width: 320px) {
-      margin-top: 28%;
-    }
+function App() {
+  const [hover, setHover] = useState(false)
 
-    @media (min-width: 768px) {
-      margin-top: 8%;
-    }
-    @media (max-width: 425px) {
-      width: 100%;
-    }
-
-    @media (min-width: 1024px) {
-      margin-top: 6%;
-    }
-
-    @media (min-width: 1440px) {
-      margin: 6% 0 0 3%;
-    }
-  `
   return (
     <React.Fragment>
       <GlobalStyle />
-
-      <Header />
-      <Main>
-        <LateralMenu />
+      <LateralMenu handleHover={setHover} />
+      <Header IsHover={hover} handleHover={setHover} />
+      <main className="row">
         <StatementProvider>
           <Home />
           <About />
@@ -78,8 +49,10 @@ function App() {
           <Experiences />
           <Contact />
         </StatementProvider>
-      </Main>
+      </main>
       <Footer />
+      <ToTop />
+      <ToogleMenu IsHover={hover} handleHover={setHover} />
     </React.Fragment>
   )
 }

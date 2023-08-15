@@ -2,14 +2,26 @@ import React from 'react'
 import Caroussel from './Caroussel'
 import styled from 'styled-components'
 
-function Offcanvas({ DivImage, DivHover, cover, id, hover }) {
-  const OffcanvasComponent = styled.div`
-    background-color: rgba(0, 0, 0, 0.5);
-  `
+const OffcanvasComponent = styled.div`
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 60vh !important;
+  @media (min-width: 425px) {
+    height: 70vh !important;
+  }
 
-  const OffcanvasBody = styled.div`
-    position: relative;
-  `
+  @media (min-width: 576px) {
+    height: 90vh !important;
+  }
+
+  @media (min-width: 1200px) {
+    height: 95vh !important;
+  }
+`
+
+const OffcanvasBody = styled.div`
+  position: relative;
+`
+function Offcanvas({ DivImage, DivHover, cover, id, hover }) {
   return (
     <React.Fragment>
       <div
@@ -24,7 +36,7 @@ function Offcanvas({ DivImage, DivHover, cover, id, hover }) {
       </div>
 
       <OffcanvasComponent
-        className="offcanvas offcanvas-bottom h-75"
+        className="offcanvas offcanvas-bottom"
         tabIndex="-1"
         id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel"

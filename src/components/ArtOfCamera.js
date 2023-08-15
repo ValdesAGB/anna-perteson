@@ -1,70 +1,61 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { backButton } from '../data'
+import { artOfCameraElements, backButton } from '../data'
 import { StatementContext } from '../untils/context'
+
+const SectionArtOfCamera = styled.section`
+  padding: 20px 12px;
+  @media (min-width: 768px) {
+    padding: 50px 40px;
+  }
+
+  .carousel {
+    margin-top: 50px;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+  }
+`
+
+const Content = styled.div`
+  margin-top: 40px;
+`
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: 5px;
+`
+
+const SubTitle = styled.p`
+  font-size: 20px;
+  line-height: 33px;
+  margin: 25px 0;
+  text-align: justify;
+  @media (min-width: 992px) {
+    max-width: 422px;
+  }
+`
+
+const Paragraph = styled.p`
+  font-size: 15px;
+  line-height: 2;
+  font-weight: 400;
+  text-align: justify;
+`
 
 function ArtOfCamera() {
   const { setFirstCover, setSecondeCover, setIsLoading } =
     useContext(StatementContext)
 
-  const SectionArtOfCamera = styled.section`
-    @media (min-width: 320px) {
-      padding: 10% 0 20% 0;
-    }
-
-    @media (min-width: 768px) {
-      padding: 10% 5% 20% 5%;
-    }
-  `
-
-  const DivContent = styled.div`
-    margin-top: 10%;
-  `
-  const H1 = styled.h1`
-    @media (min-width: 320px) {
-      font-size: 1.5em;
-      font-weight: 600;
-      line-height: 100%;
-      letter-spacing: 5px;
-      margin-bottom: 15%;
-    }
-
-    @media (min-width: 425px) {
-      margin-bottom: 10%;
-    }
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 26px;
-    letter-spacing: 5px;
-    margin-bottom: 25px;
-  `
-
-  const SubTitle = styled.p`
-    @media (min-width: 320px) {
-      width: 100%;
-    }
-    font-size: 20px;
-    line-height: 33px;
-    width: 422px;
-    max-width: 422px;
-    margin-bottom: 40px;
-  `
-
-  const Paragraph = styled.p`
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    line-height: 2;
-    font-weight: 400;
-  `
-
   return (
     <React.Fragment>
       <SectionArtOfCamera>
         {backButton(setFirstCover, setSecondeCover, setIsLoading)}
-        <div
-          id="carouselExampleIndicators"
-          className="carousel slide col-12 mt-5"
-        >
+        <div id="carouselExampleIndicators" className="carousel slide col-12">
           <div className="carousel-indicators">
             <button
               type="button"
@@ -88,31 +79,18 @@ function ArtOfCamera() {
             ></button>
           </div>
           <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img
-                src="https://demo.cocobasic.com/seppo-html/demo-3/images/p_item_03.jpg"
-                className="d-block w-100"
-                alt="1"
-              />
-            </div>
-            <div className="carousel-item">
-              <img
-                src="https://demo.cocobasic.com/seppo-html/demo-3/images/p_item_02.jpg"
-                className="d-block w-100"
-                alt="2"
-              />
-            </div>
-            <div className="carousel-item">
-              <img
-                src="https://demo.cocobasic.com/seppo-html/demo-3/images/p_item_01.jpg"
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
+            {artOfCameraElements.map(({ id, src }) => (
+              <div
+                className={`carousel-item ${id === 'cover-1' ? 'active' : ''}`}
+                key={id}
+              >
+                <img src={src} alt={id} />
+              </div>
+            ))}
           </div>
         </div>
-        <DivContent className="">
-          <H1 className="col-6 col-md-9">ART OF CAMERA</H1>
+        <Content>
+          <Title className="col-6 col-sm-8 col-md-9">ART OF CAMERA</Title>
           <SubTitle>
             Two ghostly white figures in coveralls and helmets are softly
             dancing lorem ipsum.
@@ -125,7 +103,7 @@ function ArtOfCamera() {
             mind’s cras pretium metus pulvinar ultricies auctor in varius purus
             blandit sem mollis.
           </Paragraph>
-        </DivContent>
+        </Content>
       </SectionArtOfCamera>
     </React.Fragment>
   )

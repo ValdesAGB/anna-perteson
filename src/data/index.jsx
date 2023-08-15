@@ -1,4 +1,10 @@
 import styled from 'styled-components'
+import { colors } from '../untils/colors'
+
+export const annaCover = {
+  sm: 'https://demo.cocobasic.com/seppo-html/demo-3/images/phone_image.jpg',
+  md: 'https://demo.cocobasic.com/seppo-html/demo-3/images/main_image.jpg',
+}
 
 export const aboutElements = [
   {
@@ -104,24 +110,103 @@ export const footerElements = [
 
 export const portfolioElements = [
   {
-    id: '10000',
+    id: 'bureau',
     cover: 'https://demo.cocobasic.com/seppo-html/demo-3/images/portfolio1.jpg',
   },
   {
-    id: '20000',
+    id: 'paysage',
     cover: 'https://demo.cocobasic.com/seppo-html/demo-3/images/portfolio2.jpg',
   },
   {
-    id: '30000',
+    id: 'bureau-2',
     cover: 'https://demo.cocobasic.com/seppo-html/demo-3/images/portfolio3.jpg',
     modal: true,
   },
   {
-    id: '40000',
+    id: 'bureau-3',
     cover: 'https://demo.cocobasic.com/seppo-html/demo-3/images/portfolio4.jpg',
     modal: true,
   },
 ]
+
+export const portfolioHoverElements = [
+  {
+    id: 'bureau',
+    title: 'Home',
+    subTitle: 'Text',
+  },
+
+  {
+    id: 'paysage',
+    title: 'Stairways',
+    subTitle: 'Text',
+  },
+
+  {
+    id: 'bureau-2',
+    title: 'Sneakers',
+    subTitle: 'Image',
+  },
+
+  {
+    id: 'bureau-3',
+    title: 'Design',
+    subTitle: 'Video',
+  },
+]
+
+export const PortfolioHover = (id) => {
+  const element = portfolioHoverElements.find((item) => item.id === id)
+
+  return (
+    <>
+      <h3 className="fw-bold">{element.title}</h3>
+      <h6>{element.subTitle}</h6>
+    </>
+  )
+}
+
+export const artOfCameraElements = [
+  {
+    id: 'cover-1',
+    src: 'https://demo.cocobasic.com/seppo-html/demo-3/images/p_item_03.jpg',
+  },
+
+  {
+    id: 'cover-2',
+    src: 'https://demo.cocobasic.com/seppo-html/demo-3/images/p_item_02.jpg',
+  },
+
+  {
+    id: 'cover-3',
+    src: 'https://demo.cocobasic.com/seppo-html/demo-3/images/p_item_01.jpg',
+  },
+]
+
+const Button = styled.button`
+  position: relative;
+  color: white;
+  background-color: ${colors.portfolioTitleBgColor};
+  font-size: 3em;
+  padding: 0 5%;
+  font-weight: 300;
+  border: none;
+
+  &:hover {
+    color: white;
+    background-color: ${colors.portfolioTitleBgColor};
+  }
+`
+
+const Icone = styled.i`
+  position: relative;
+  left: 0;
+  transition: left 500ms ease-in-out;
+  ${Button}:hover & {
+    left: -15%;
+    transform: translateX(0%);
+  }
+`
 
 export const backButton = (setFirstCover, setSecondeCover, setIsLoading) => {
   const reset = () => {
@@ -133,32 +218,6 @@ export const backButton = (setFirstCover, setSecondeCover, setIsLoading) => {
     }, 2000)
   }
 
-  const Button = styled.button`
-    position: relative;
-    color: white;
-    background-color: #f8a577;
-    font-size: 3em;
-    padding: 0 5% 0 5%;
-    font-weight: 300;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 0%;
-    &:hover {
-      color: white;
-      background-color: #f8a577;
-    }
-  `
-
-  const Icone = styled.i`
-    position: relative;
-    left: 0;
-    transition: left 500ms ease-in-out;
-    ${Button}:hover & {
-      left: -15%;
-      opacity: 1;
-      transform: translateX(0%);
-    }
-  `
   return (
     <Button className="btn" onClick={() => reset()}>
       <Icone className="fa-sharp fa-solid fa-arrow-left" />
@@ -262,46 +321,49 @@ export const lateralMenuElements = [
 
 export const headerElements = [
   {
-    title: 'Home',
-    href: '#',
-  },
-
-  {
+    id: 'about',
     title: 'About',
     href: '#about',
   },
 
   {
+    id: 'porfolio',
     title: 'Portfolio',
     href: '#porfolio',
   },
 
   {
+    id: 'cover-letter',
     title: 'Cover Letter',
     href: '#cover-letter',
   },
 
   {
+    id: 'skills',
     title: 'Skills',
     href: '#skills',
   },
 
   {
+    id: 'education',
     title: 'Education',
     href: '#education',
   },
 
   {
+    id: 'facts',
     title: 'Facts',
     href: '#facts',
   },
 
   {
+    id: 'experience',
     title: 'Experience',
     href: '#experience',
   },
 
   {
+    id: 'contact',
     title: 'Contact',
     href: '#contact',
   },

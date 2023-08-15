@@ -2,12 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 function Formulaire() {
-  const Formulaires = styled.form`
-    margin-bottom: 10%;
-    @media (min-width: 320px) {
-      padding: 0% 2% 0% 2%;
-    }
-  `
   const Input = styled.input`
     background-color: transparent;
     border: none;
@@ -59,8 +53,8 @@ function Formulaire() {
   `
   return (
     <React.Fragment>
-      <div>
-        <Formulaires className="row">
+      <div className="container">
+        <form className="row">
           <div className="form-floating mb-3">
             <Input
               type="text"
@@ -68,7 +62,7 @@ function Formulaire() {
               id="name"
               placeholder="name"
             />
-            <Label htmlFor="name">Name</Label>
+            <Label htmlFor="name">Nom</Label>
           </div>
 
           <div className="form-floating mb-3">
@@ -78,7 +72,7 @@ function Formulaire() {
               id="email"
               placeholder="name@example.com"
             />
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">E-mail</Label>
           </div>
 
           <div className="form-floating mb-3">
@@ -88,7 +82,7 @@ function Formulaire() {
               id="subject"
               placeholder="subject"
             />
-            <Label htmlFor="subject">Subject</Label>
+            <Label htmlFor="subject">Sujet</Label>
           </div>
 
           <div className="form-floating mb-3">
@@ -101,10 +95,14 @@ function Formulaire() {
             <Label htmlFor="Message">Message</Label>
           </div>
 
-          <Button type="submit" className="  mt-3">
+          <Button
+            type="submit"
+            className="mt-3"
+            onClick={(e) => e.preventDefault()}
+          >
             Send message
           </Button>
-        </Formulaires>
+        </form>
       </div>
     </React.Fragment>
   )

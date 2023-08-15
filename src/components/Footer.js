@@ -1,44 +1,70 @@
 import React from 'react'
 import { footerElements } from '../data'
 import styled from 'styled-components'
+import { colors } from '../untils/colors'
+
+const Content = styled.div`
+  padding: 50px 0;
+  background-color: ${colors.secondBgColor};
+`
+const LiensFooter = styled.a`
+  color: ${colors.LoaderDotsBgColor};
+  transition: color 400ms;
+  &:hover {
+    color: ${colors.aboutTitleBgColor};
+  }
+`
+
+const Icone = styled.i`
+  font-size: 1.9em;
+`
+
+const Copyright = styled.div`
+  margin-top: 10px;
+  p {
+    margin: 0;
+  }
+  a {
+    color: ${colors.LoaderDotsBgColor};
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    transition: transform 0.5s 0.2s, color 0.5s;
+    &:hover {
+      transform: scale(0.95);
+      color: ${colors.aboutTitleBgColor};
+    }
+  }
+`
 
 function Footer() {
-  const DivFooter = styled.div`
-    padding: 10% 0 5% 0;
-    background-color: #faeddf;
-  `
-  const LiensFooter = styled.a`
-    color: #7a5932;
-    transition: color 400ms;
-    &:hover {
-      color: #188497;
-    }
-  `
-
-  const Icone = styled.i`
-    font-size: 1.9em;
-  `
-
   const date = new Date()
 
   return (
     <footer>
-      <DivFooter className="row justify-content-center">
-        <div className="row col-12 text-center justify-content-center">
-          <ul className="list-unstyled col-12 justify-content-center col-md-6 col-xl-4 row ">
-            {footerElements.map(({ id, icone }) => (
-              <li key={id} className="col  col-xxl-2 ">
-                <LiensFooter href="#">
-                  <Icone className={icone} />
-                </LiensFooter>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-2">
-            <p>&copy; {date.getFullYear()} Seppo HTML5 Theme by WebGrowth</p>
+      <Content className="row">
+        <div className="text-center">
+          <div className="row justify-content-center">
+            <ul className="list-unstyled justify-content-center col-md-6 col-xl-4 row">
+              {footerElements.map(({ id, icone }) => (
+                <li key={id} className="col">
+                  <LiensFooter href="#">
+                    <Icone className={icone} />
+                  </LiensFooter>
+                </li>
+              ))}
+            </ul>
+            <Copyright>
+              <p>
+                &copy; {date.getFullYear()} - All Rights Reserved -{' '}
+                <a href="https://webgrowth.valdesagbokoni.com/" target="_black">
+                  WebGrowth
+                </a>
+              </p>
+            </Copyright>
           </div>
         </div>
-      </DivFooter>
+      </Content>
     </footer>
   )
 }

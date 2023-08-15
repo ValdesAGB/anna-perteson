@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
+import { colors } from './colors'
 
 const bounce = keyframes`
   0% {
@@ -17,16 +18,8 @@ const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (min-width: 320px) {
-    height: 50vh;
-  }
-  @media (min-width: 425px) {
-    height: 75vh;
-  }
 
-  @media (min-width: 768px) {
-    height: 100vh;
-  }
+  height: 100vh;
 
   @media (min-width: 2560px) {
     height: 50vh;
@@ -41,7 +34,7 @@ const Dot = styled.div`
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: #7a5932;
+  background-color: ${colors.LoaderDotsBgColor};
   margin-right: 8px;
   animation: ${bounce} 1s infinite;
   animation-delay: ${(props) => props.delay};
