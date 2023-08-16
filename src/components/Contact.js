@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Formulaire from './Formulaire'
 import { colors } from '../untils/colors'
+import SectionTitleComponent from './SectionTitleComponent'
 
 const ContactSection = styled.section`
   position: relative;
@@ -10,34 +11,6 @@ const ContactSection = styled.section`
 const Container = styled.div`
   @media (max-width: 767px) {
     padding: 0;
-  }
-`
-
-const TitleContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${colors.portfolioTitleBgColor};
-`
-
-const Title = styled.h1`
-  color: white;
-  font-weight: 300;
-  padding: 10% 0;
-  font-size: 2.5em;
-  letter-spacing: -3px;
-
-  @media (min-width: 768px) {
-    padding: 40% 0;
-    font-size: 3em;
-    letter-spacing: -5px;
-  }
-  @media (min-width: 1200px) {
-    font-size: 3.3em;
-  }
-  @media (min-width: 1400px) {
-    font-size: 4em;
-    letter-spacing: -8px;
   }
 `
 
@@ -95,9 +68,12 @@ function Contact() {
               </Paragraph>
               <Formulaire />
             </Content>
-            <TitleContainer className="col-12 col-md-4 order-1 order-md-2">
-              <Title>Contact</Title>
-            </TitleContainer>
+
+            <SectionTitleComponent
+              title="Contact"
+              className="col-12 col-md-4 order-1 order-md-2"
+              TitleContainerBgColor={colors.portfolioTitleBgColor}
+            />
           </div>
         </Container>
         {/*<ContactAnimation/>*/}

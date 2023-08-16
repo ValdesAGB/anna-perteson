@@ -2,6 +2,7 @@ import React from 'react'
 import { aboutElements } from '../data'
 import styled from 'styled-components'
 import { colors } from '../untils/colors'
+import SectionTitleComponent from './SectionTitleComponent'
 
 const Container = styled.div`
   @media (max-width: 767px) {
@@ -113,9 +114,10 @@ function About() {
       <section id="about">
         <Container className="container">
           <div className="row align-items-start">
-            <TitleContainer className="col-12 col-md-4">
-              <Title>About</Title>
-            </TitleContainer>
+            <SectionTitleComponent
+              title={'About'}
+              TitleContainerBgColor={colors.aboutTitleBgColor}
+            />
             <Content className="col-12 col-md">
               <ContentTitle>
                 Dolor sit amet, consectetur adipiscing elit viverra tristique

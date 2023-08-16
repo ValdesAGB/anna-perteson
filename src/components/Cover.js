@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors } from '../untils/colors'
+import SectionTitleComponent from './SectionTitleComponent'
 
 const CoverSection = styled.section`
   position: relative;
@@ -9,39 +10,6 @@ const CoverSection = styled.section`
 const Container = styled.div`
   @media (max-width: 767px) {
     padding: 0;
-  }
-`
-
-const TitleContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${colors.coverLetterTitleBgColor};
-`
-
-const Title = styled.h1`
-  color: ${colors.coverLetterTitleColor};
-  font-weight: 300;
-  padding: 10% 0;
-  font-size: 2.5em;
-  letter-spacing: -3px;
-
-  @media (min-width: 768px) {
-    padding: 40% 0;
-    font-size: 3em;
-    letter-spacing: -5px;
-  }
-  @media (min-width: 1200px) {
-    font-size: 3.3em;
-  }
-  @media (min-width: 1400px) {
-    font-size: 4em;
-    letter-spacing: -8px;
-  }
-`
-const Br = styled.br`
-  @media (max-width: 767px) {
-    display: none;
   }
 `
 
@@ -94,17 +62,31 @@ const SignatureContainer = styled.div`
   }
 `
 
+const Br = styled.br`
+  @media (max-width: 767px) {
+    display: none;
+  }
+`
+
+function CoverTitle() {
+  return (
+    <>
+      Cover <Br /> Letter
+    </>
+  )
+}
+
 function Cover() {
   return (
     <React.Fragment>
       <CoverSection id="cover-letter">
         <Container className="container">
           <div className="row align-items-start">
-            <TitleContainer className="col-12 col-md-4 ">
-              <Title className="text-center">
-                Cover <Br /> Letter
-              </Title>
-            </TitleContainer>
+            <SectionTitleComponent
+              title={CoverTitle()}
+              TitleColor={colors.coverLetterTitleColor}
+              TitleContainerBgColor={colors.coverLetterTitleBgColor}
+            />
             <Content className="col-12 col-md ">
               <ContentMainParagraph>
                 Dolor sit amet, consectetur adipiscing elit viverra tristique

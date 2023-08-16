@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import LevelEducation from './LevelEducation'
 import { educationElements } from '../data'
 import { colors } from '../untils/colors'
+import SectionTitleComponent from './SectionTitleComponent'
 
 const EducationSection = styled.section`
   position: relative;
@@ -11,33 +12,6 @@ const EducationSection = styled.section`
 const Container = styled.div`
   @media (max-width: 767px) {
     padding: 0;
-  }
-`
-const TitleContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${colors.portfolioTitleBgColor};
-`
-
-const Title = styled.h1`
-  color: white;
-  font-weight: 300;
-  padding: 10% 0;
-  font-size: 2.5em;
-  letter-spacing: -3px;
-
-  @media (min-width: 768px) {
-    padding: 40% 0;
-    font-size: 3em;
-    letter-spacing: -5px;
-  }
-  @media (min-width: 1200px) {
-    font-size: 3.3em;
-  }
-  @media (min-width: 1400px) {
-    font-size: 4em;
-    letter-spacing: -8px;
   }
 `
 
@@ -64,9 +38,10 @@ function Education() {
       <EducationSection id="education">
         <Container className="container">
           <div className="row align-items-start">
-            <TitleContainer className=" col-12 col-md-4 ">
-              <Title className="text-center">Education</Title>
-            </TitleContainer>
+            <SectionTitleComponent
+              title="Education"
+              TitleContainerBgColor={colors.portfolioTitleBgColor}
+            />
             <Content className="col-12 col-md  justify-content-center ">
               {educationElements.map(({ id, title, text, year }) => (
                 <LevelEducation

@@ -47,7 +47,7 @@ function Footer() {
           <div className="row justify-content-center">
             <ul className="list-unstyled justify-content-center col-md-6 col-xl-4 row">
               {footerElements.map(({ id, icone }) => (
-                <li key={id} className="col">
+                <li key={id} className="col col-sm-2 col-md">
                   <LiensFooter href="#">
                     <Icone className={icone} />
                   </LiensFooter>

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import FactsStats from './FactsStats'
 import { colors } from '../untils/colors'
+import SectionTitleComponent from './SectionTitleComponent'
 
 const FactsSession = styled.section`
   position: relative;
@@ -11,34 +12,6 @@ const FactsSession = styled.section`
 const Container = styled.div`
   @media (max-width: 767px) {
     padding: 0;
-  }
-`
-
-const TitleContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${colors.aboutTitleBgColor};
-`
-
-const Title = styled.h1`
-  color: white;
-  font-weight: 300;
-  padding: 10% 0;
-  font-size: 2.5em;
-  letter-spacing: -3px;
-
-  @media (min-width: 768px) {
-    padding: 40% 0;
-    font-size: 3em;
-    letter-spacing: -5px;
-  }
-  @media (min-width: 1200px) {
-    font-size: 3.3em;
-  }
-  @media (min-width: 1400px) {
-    font-size: 4em;
-    letter-spacing: -8px;
   }
 `
 
@@ -85,9 +58,12 @@ function Facts() {
                 <FactsStats />
               </div>
             </Content>
-            <TitleContainer className="col-12 col-md-4 order-1 order-md-2">
-              <Title className="text-center">Facts</Title>
-            </TitleContainer>
+
+            <SectionTitleComponent
+              title="Facts"
+              className="col-12 col-md-4 order-1 order-md-2"
+              TitleContainerBgColor={colors.aboutTitleBgColor}
+            />
           </div>
         </Container>
 

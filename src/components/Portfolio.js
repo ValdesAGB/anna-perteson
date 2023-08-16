@@ -8,6 +8,7 @@ import Offcanvas from './Offcanvas'
 import Loader from '../untils/Loader'
 import 'animate.css'
 import { colors } from '../untils/colors'
+import SectionTitleComponent from './SectionTitleComponent'
 
 const PortfolioSection = styled.section`
   position: relative;
@@ -172,9 +173,11 @@ function Portfolio() {
                 )
               )}
             </Content>
-            <TitleContainer className="col-12 col-md-4 order-1 order-md-2">
-              <Title>Portfolio</Title>
-            </TitleContainer>
+            <SectionTitleComponent
+              title={'Portfolio'}
+              className={'col-12 col-md-4 order-1 order-md-2'}
+              TitleContainerBgColor={colors.portfolioTitleBgColor}
+            />
           </div>
         </Container>
         {/*<PortfolioAnimation/>*/}

@@ -6,7 +6,7 @@ import { colors } from '../untils/colors'
 const HeaderResponsiveNav = styled.nav`
   background-color: ${colors.secondBgColor};
   padding: 10px 0;
-  @media (min-width: 1200px) {
+  @media (min-width: 992px) {
     display: none;
   }
 `

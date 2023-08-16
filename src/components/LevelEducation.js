@@ -1,57 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
-import { width } from '../data'
+import { colors } from '../untils/colors'
 
 function LevelEducation({ year, text, title, lineState }) {
   const VerticalLayout = styled.div`
     cursor: pointer;
-    /*display: flex;
-    align-items: flex-start;
+  `
 
-    @media (min-width: 425px) {
-      margin-left: 1%;
+  const Year = styled.div`
+    text-align: center;
+    font-weight: bold;
+    color: ${colors.aboutTitleBgColor};
+    margin-top: 2%;
+    transition: transform 0.5s;
+    ${VerticalLayout}:hover & {
+      transform: translateX(-10%);
     }
-
-    @media (min-width: 1024px) {
-      margin-left: 10%;
-    }
-    @media (min-width: ${width}px) {
-      margin-left: 20%;
-    }*/
   `
 
   const VerticalLine = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 10px;
-  `
-
-  const Year = styled.div`
-    font-weight: bold;
-    color: #188497;
-
-    margin-right: 20px;
-
-    margin-top: 2%;
-
-    transition: transform 500ms;
-    ${VerticalLayout}:hover & {
-      transform: translateX(-10%);
-    }
-
-    @media (min-width: 768px) {
-      ${VerticalLayout}:hover & {
-        transform: translateX(-50%);
-      }
-    }
   `
 
   const Cercle = styled.div`
     position: relative;
     width: 10px;
     height: 10px;
-    border: solid 3px #188497;
+    border: solid 3px ${colors.aboutTitleBgColor};
     border-radius: 50%;
     margin-bottom: 10px;
     padding: 15px;
@@ -62,7 +39,7 @@ function LevelEducation({ year, text, title, lineState }) {
     transform: translate(-50%, -50%);
     width: 70%;
     height: 70%;
-    background-color: #188497;
+    background-color: ${colors.aboutTitleBgColor};
     border-radius: 50%;
     opacity: 0;
     transition: opacity 500ms;
@@ -72,15 +49,21 @@ function LevelEducation({ year, text, title, lineState }) {
   `
   const Line = styled.div`
     width: 3px;
-    background-color: #188497;
+    background-color: ${colors.aboutTitleBgColor};
     height: 100%;
     margin-bottom: 5px;
   `
 
-  const Title = styled.p`
+  const InformationsContainer = styled.div`
+    margin-top: 2%;
+    margin-left: 10px;
+  `
+
+  const Title = styled.h6`
     font-weight: bold;
   `
   const Paragraph = styled.p`
+    text-align: justify;
     font-weight: 400;
     line-height: 2em;
     @media (min-width: 768px) {
@@ -88,24 +71,20 @@ function LevelEducation({ year, text, title, lineState }) {
     }
   `
 
-  const Text = styled.div`
-    margin-top: 2%;
-  `
-
   return (
     <React.Fragment>
       <VerticalLayout className="row">
-        <Year className="col-2 col-md-1">{year}</Year>
-        <VerticalLine className="col-1 col-md-1">
+        <Year className="col-3">{year}</Year>
+        <VerticalLine className="col-1">
           <Cercle>
             <CercleBetween />
           </Cercle>
           {lineState ? <Line id={year} /> : null}
         </VerticalLine>
-        <Text className="col col-md-7 col-lg-8">
+        <InformationsContainer className="col ">
           <Title>{title}</Title>
-          <Paragraph className="col-">{text}</Paragraph>
-        </Text>
+          <Paragraph>{text}</Paragraph>
+        </InformationsContainer>
       </VerticalLayout>
     </React.Fragment>
   )

@@ -22,11 +22,11 @@ const Container = styled.a`
 
   display: none;
 
-  @media (min-width: 1200px) and (max-width: 1299px) {
+  @media (min-width: 992px) and (max-width: 1299px) {
     display: block;
   }
 
-  @media (min-width: 1400px) and (max-width: 1459px) {
+  @media (min-width: 1400px) {
     display: block;
   }
 

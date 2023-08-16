@@ -27,7 +27,7 @@ const Container = styled.div`
   background-color: ${(props) =>
     props.IsHover === true ? colors.secondBgColor : 'transparent'};
 
-  @media (max-width: 1199px) {
+  @media (max-width: 991px) {
     display: none;
   }
 `
@@ -39,7 +39,7 @@ const List = styled.ul`
   text-align: center;
 
   transform: ${(props) =>
-    props.IsHover === true ? 'translateY(0px)' : ' translateY(-50px)'};
+    props.IsHover === true ? 'translateY(0px)' : ' translateY(-60px)'};
 
   transition: transform 0.7s 0.1s cubic-bezier(0.9, -0.3, 0.19, 1.37);
 `
@@ -105,7 +105,7 @@ function Header({ IsHover, handleHover }) {
       >
         <Container IsHover={IsHover}>
           <div className="container">
-            <List className="row" IsHover={IsHover}>
+            <List className="row align-items-center" IsHover={IsHover}>
               {headerElements.map(({ id, href, title }) => (
                 <li key={id} className="col">
                   <ListLink
