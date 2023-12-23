@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/anna-perteson/static/css/main.321f33b0.css",
+    "main.js": "/anna-perteson/static/js/main.1af9fdb9.js",
+    "index.html": "/anna-perteson/index.html",
+    "main.321f33b0.css.map": "/anna-perteson/static/css/main.321f33b0.css.map",
+    "main.1af9fdb9.js.map": "/anna-perteson/static/js/main.1af9fdb9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.321f33b0.css",
+    "static/js/main.1af9fdb9.js"
+  ]
+}
